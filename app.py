@@ -147,7 +147,7 @@ def get_or_create_book(book_title, author, hometown):
 def index():
     form = BookEntryForm()
     if form.validate_on_submit():
-        get_or_create_book(form.title.data,form.author.data)
+        get_or_create_book(form.title.data,form.author.data, form.hometown.data) 
         flash("Successfully saved book, if new")
         return redirect(url_for('index'))
     return render_template('index.html',form=form)
